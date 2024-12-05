@@ -4,10 +4,6 @@ input {
     border: 1px solid gray !important;
     /* background-color: transparent !important; */
 }
-body{
-    /*background-color: rgb(194, 191, 191);*/
-    background-image: linear-gradient(to right top, #051937, #003455, #00526f, #007086, #239099) !important;
-}
 table,
 tr,
 td {
