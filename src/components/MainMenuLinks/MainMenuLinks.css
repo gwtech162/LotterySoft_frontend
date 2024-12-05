@@ -138,10 +138,28 @@ span {
     .menu-body{
         width: 100%;
         height:auto;
-        padding: 4px;
+        padding: 0px;
+        gap:10px;
     }
 
     .flex-box{
-        width: 43%;
+        width: 80px;
+        
+    }
+
+    .flex-box p{
+        font-size: 15px;
+    }
+
+    .icon-box{
+        display: block;
+        /*background-color: #fdf9bc;*/
+        background-color: #f29d29;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        border-radius: 50%;
+        margin: auto;
+        font-size: 10px;
     }
 }
