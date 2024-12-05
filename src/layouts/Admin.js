@@ -33,6 +33,7 @@ import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 import MainPanel from "../components/Layout/MainPanel";
 import PanelContainer from "../components/Layout/PanelContainer";
 import PanelContent from "../components/Layout/PanelContent";
+import CustomNavbar from "components/CustomNavbar/CustomNavbar";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 export default function Dashboard(props) {
   const { ...rest } = props;
@@ -117,20 +118,29 @@ export default function Dashboard(props) {
   // Chakra Color Mode
   return (
     <ChakraProvider theme={theme} resetCss={false}>
-      <Sidebar
+      {/* <Sidebar
         routes={matchRoutes}
         logoText={"LOTTERY"}
         display='none'
         sidebarVariant={sidebarVariant}
         {...rest}
-      />
+      /> */}
+      <CustomNavbar links={
+        [
+          {
+            text:"Logout",
+            url:"/signout"
+          }
+        ]
+      } navbarBrand="DESTINE LOTO" navbarBrandUrl="#"/>
       <MainPanel
         ref={mainPanel}
         w={{
           base: "100%",
-          xl: "calc(100% - 275px)",
+          xl:"100%"
+          // xl: "calc(100% - 275px)",
         }}>
-        <Portal>
+        {/* <Portal>
           <AdminNavbar
             onOpen={onOpen}
             logoText={"LOTTERY"}
@@ -139,7 +149,7 @@ export default function Dashboard(props) {
             fixed={fixed}
             {...rest}
           />
-        </Portal>
+        </Portal> */}
         {getRoute() ? (
           <PanelContent>
             <PanelContainer>
