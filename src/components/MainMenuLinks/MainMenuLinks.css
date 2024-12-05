@@ -122,3 +122,26 @@ span {
     padding-left: 20px;
     /*box-shadow: 0p 0px 8px red;*/
 }
+
+@media screen and (max-width: 500px) {
+
+    .wrapper{
+        margin-top: 40px;
+        margin-bottom: 0px;
+    }
+
+    .main-container{
+        width:90%;
+        height: auto;
+    }
+
+    .menu-body{
+        width: 100%;
+        height:auto;
+        padding: 4px;
+    }
+
+    .flex-box{
+        width: 43%;
+    }
+}

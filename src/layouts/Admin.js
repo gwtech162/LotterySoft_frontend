@@ -142,7 +142,7 @@ export default function Dashboard(props) {
                 url:"/signout"
               }
             ]
-          }
+          } navbarBrand="LOTTERY SOFT" navbarBrandUrl="#"
           />
         )
       }
