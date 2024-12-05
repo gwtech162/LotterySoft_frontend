@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { useHistory, Link as RouterLink } from "react-router-dom";
+import { 
+  useHistory, 
+  // Link as RouterLink 
+} from "react-router-dom";
 import {
   Flex,
   Button,
@@ -9,97 +12,99 @@ import {
   Input,
   Text,
   useToast,
-  Drawer,
-  DrawerBody,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  IconButton,
+  // Drawer,
+  // DrawerBody,
+  // DrawerOverlay,
+  // DrawerContent,
+  // DrawerCloseButton,
+  // IconButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import api from "../../utils/customFetch.js";
+import CustomNavbar from "components/CustomNavbar/CustomNavbar.js";
 
 // Color constants for reuse
 const COLORS = {
-  title: "white",
+  title: "rgb(252, 144, 55)",
   text: "white",
   headerBg: "linear-gradient(145deg, #556d70, #475c5f)",
   drawerBg: "#3F3534",
-  bodyBg: "#587a7e",
-  formBg: "linear-gradient(145deg, #5e8387, #4f6e71)",
-  inputBg: "linear-gradient(145deg, #5e8387, #4f6e71)",
+  bodyBg: "linear-gradient(to right top, #051937, #003455, #00526f, #007086, #239099)",
+  formBg: "linear-gradient(to bottom, #051937, #003f60, #006884, #247c88, #239099)",
+  inputBg: "rgb(199, 187, 187)",
   buttonBg: "#475c5f",
 };
 
 // Header component
-const Header = ({ onDrawerOpen }) => (
-  <Flex
-    as="header"
-    align="center"
-    justify="space-between"
-    p={2}
-    bgGradient={COLORS.headerBg}
-    color={COLORS.text}
-    position="relative"
-    boxShadow="5px 5px 6px #1b1e1f, -5px -5px 6px #7ea3a8"
-  >
-    <Text fontSize="20px" fontWeight="600" textColor="#fdf9bc" ml="10px">
-      LOTTERY SOFT
-    </Text>
-    <Flex align="center" gap={{ base: 2, md: 6 }}>
-      <IconButton
-        icon={<HamburgerIcon />}
-        variant="outline"
-        onClick={onDrawerOpen}
-        display={{ base: "flex", md: "none" }}
-      />
-      <NavigationLinks />
-      <RouterLink to="/signin">
-        <Button bg="#fdf9bc" mx={4} textColor="black">
-          Login
-        </Button>
-      </RouterLink>
-    </Flex>
-  </Flex>
-);
+// const Header = ({ onDrawerOpen }) => (
+//   <Flex
+//     as="header"
+//     align="center"
+//     justify="space-between"
+//     p={2}
+//     bgGradient={COLORS.headerBg}
+//     color={COLORS.text}
+//     position="relative"
+//     boxShadow="5px 5px 6px #1b1e1f, -5px -5px 6px #7ea3a8"
+//   >
+//     <Text fontSize="20px" fontWeight="600" textColor="#fdf9bc" ml="10px">
+//       LOTTERY SOFT
+//     </Text>
+//     <Flex align="center" gap={{ base: 2, md: 6 }}>
+//       <IconButton
+//         icon={<HamburgerIcon />}
+//         variant="outline"
+//         onClick={onDrawerOpen}
+//         display={{ base: "flex", md: "none" }}
+//       />
+//       <NavigationLinks />
+//       <RouterLink to="/signin">
+//         <Button bg="#fdf9bc" mx={4} textColor="black">
+//           Login
+//         </Button>
+//       </RouterLink>
+//     </Flex>
+//   </Flex>
+// );
 
 // Drawer menu component for mobile view
-const DrawerMenu = ({ isOpen, onClose }) => (
-  <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-    <DrawerOverlay />
-    <DrawerContent bg={COLORS.drawerBg}>
-      <DrawerCloseButton color="white" />
-      <DrawerBody>
-        <NavigationLinks vertical />
-      </DrawerBody>
-    </DrawerContent>
-  </Drawer>
-);
+// const DrawerMenu = ({ isOpen, onClose }) => (
+//   <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+//     <DrawerOverlay />
+//     <DrawerContent bg={COLORS.drawerBg}>
+//       <DrawerCloseButton color="white" />
+//       <DrawerBody>
+//         <NavigationLinks vertical />
+//       </DrawerBody>
+//     </DrawerContent>
+//   </Drawer>
+// );
 
 // Links for header and drawer
-const NavigationLinks = ({ vertical }) => (
-  <Flex
-    direction={vertical ? "column" : "row"}
-    alignItems={vertical ? "flex-start" : "center"}
-    display={{ base: vertical ? "flex" : "none", md: "flex" }}
-  >
-    {["Home", "Contacts", "Services"].map((route) => (
-      <RouterLink to={`/${route}`} key={route}>
-        <Button
-          variant="link"
-          my={2}
-          mx={4}
-          textColor="antiquewhite"
-          fontSize="18px"
-          fontWeight="bold"
-          cursor="pointer"
-        >
-          {capitalize(route)}
-        </Button>
-      </RouterLink>
-    ))}
-  </Flex>
-);
+// const NavigationLinks = ({ vertical }) => (
+//   // <Flex
+//   //   direction={vertical ? "column" : "row"}
+//   //   alignItems={vertical ? "flex-start" : "center"}
+//   //   display={{ base: vertical ? "flex" : "none", md: "flex" }}
+//   // >
+//   //   {["Home", "Contacts", "Services"].map((route) => (
+//   //     <RouterLink to={`/${route}`} key={route}>
+//   //       <Button
+//   //         variant="link"
+//   //         my={2}
+//   //         mx={4}
+//   //         textColor="antiquewhite"
+//   //         fontSize="18px"
+//   //         fontWeight="bold"
+//   //         cursor="pointer"
+//   //       >
+//   //         {capitalize(route)}
+//   //       </Button>
+//   //     </RouterLink>
+//   //   ))}
+//   // </Flex>
+//   <CustomNavbar />
+// );
 
 // Login form component
 const LoginForm = ({ name, setName, password, setPassword, handleSubmit }) => (
@@ -107,8 +112,9 @@ const LoginForm = ({ name, setName, password, setPassword, handleSubmit }) => (
     <Flex
       direction="column"
       alignItems="center"
-      bg={COLORS.inputBg}
-      boxShadow="5px 5px 6px #8dc3ca, -5px -5px 6px #8dc3ca"
+      bg={COLORS.formBg}
+      boxShadow="0px 0px 6px whitesmoke,
+                0px 0px 6px whitesmoke;"
       py={10}
       px={4}
       borderRadius="10px"
@@ -119,7 +125,7 @@ const LoginForm = ({ name, setName, password, setPassword, handleSubmit }) => (
         fontSize={["24px", "28px"]}
         mb={{ base: "30px", md: "50px" }}
         textAlign="center"
-        textColor="aliceblue"
+        textColor={COLORS.title}
         fontWeight="600"
       >
         LOGIN
@@ -150,13 +156,14 @@ const LoginForm = ({ name, setName, password, setPassword, handleSubmit }) => (
             width="100%"
             paddingX="10px"
             onChange={(e) => onChange(e.target.value)}
-            bg="#83a6aa"
+            bg={COLORS.inputBg}
             borderRadius="none"
             textColor="black"
           />
         </FormControl>
       ))}
-      <Button
+      <button type="submit" onClick={handleSubmit}>LOGIN</button>
+      {/* <Button
         bg={COLORS.buttonBg}
         type="submit"
         width="100%"
@@ -170,7 +177,7 @@ const LoginForm = ({ name, setName, password, setPassword, handleSubmit }) => (
         <Text color="white" fontSize={["16px", "20px"]} textColor="whitesmoke">
           LOGIN
         </Text>
-      </Button>
+      </Button> */}
     </Flex>
   </Flex>
 );
@@ -178,7 +185,7 @@ const LoginForm = ({ name, setName, password, setPassword, handleSubmit }) => (
 function SignIn() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const history = useHistory();
   const toast = useToast();
 
@@ -229,8 +236,14 @@ function SignIn() {
 
   return (
     <>
-      <Header onDrawerOpen={() => setIsOpen(true)} />
-      <DrawerMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      {/* <Header onDrawerOpen={() => setIsOpen(true)} />
+      <DrawerMenu isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
+      <CustomNavbar links={[
+        {
+          text:"Home",
+          url:"/"
+        }
+      ]} navbarBrand="LOTTERY SOFT" navbarBrandUrl="#"/>
       <Flex align="center" justify="center" minH="100vh" bg={COLORS.bodyBg}>
         <Flex w="100%" maxW={{ base: "90%", sm: "450px" }} mx="auto" p={5}>
           <LoginForm

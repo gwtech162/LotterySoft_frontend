@@ -28,8 +28,7 @@ import {
 import { SiAdblock } from "react-icons/si";
 import { RiNumbersFill, RiDeleteBin5Fill } from "react-icons/ri";
 import { BsTicketDetailedFill } from "react-icons/bs";
-import axios from "axios";
-
+import SubAdminDashboard from "components/SubAdminDashboard/SubAdminDashboard";
 const MainMenu = () => {
   const history = useHistory();
 
@@ -184,116 +183,122 @@ const MainMenu = () => {
   };
 
   const functions = roleBasedFunctions[userRole] || [];
+  let isSubAdmin = userRole && userRole.toLowerCase() == "subadmin" ? true : false;
 
   return (
-    <Flex
-      width="100%"
-      minHeight="100vh"
-      flexDirection="column"
-      bg="#587a7e"
-      align="center"
-      p={4}
-    >
-      {/* Header */}
-      <Flex
-        as="header"
-        background="linear-gradient(145deg, #556d70, #475c5f)"
-        boxShadow="5px 5px 6px #1b1e1f, -5px -5px 6px #7ea3a8"
-        color="white"
-        alignItems="center"
-        justifyContent="space-between"
+    
+      !isSubAdmin ?(
+        <Flex
         width="100%"
-        p={5}
-        flexDirection={["column", "row"]}
-        textAlign={["center", "left"]}
+        minHeight="100vh"
+        flexDirection="column"
+        bg="#587a7e"
+        align="center"
+        p={4}
       >
-        <Text fontSize={["lg", "xl"]} fontWeight="bold" mb={[2, 0]}>
-          {companyName || "Company Name"}
-        </Text>
-        <Text
-          fontSize={["md", "xl"]}
-          fontWeight="bold"
-          flexGrow={1}
-          textAlign={["center", "center"]}
-          mb={[2, 0]}
-        ></Text>
-        <Button
-          colorScheme="orange"
-          bg="orange"
-          onClick={handleSignOut}
-          mx={[0, 10]}
-          mt={[2, 0]}
-          p={4}
-          fontWeight="bold"
-          borderRadius={5}
-          fontSize={{ base: "14px", md: "16px" }}
-          leftIcon={<GoSignOut />}
+        {/* Header */}
+        <Flex
+          as="header"
+          background="linear-gradient(145deg, #556d70, #475c5f)"
+          boxShadow="5px 5px 6px #1b1e1f, -5px -5px 6px #7ea3a8"
+          color="white"
+          alignItems="center"
+          justifyContent="space-between"
+          width="100%"
+          p={5}
+          flexDirection={["column", "row"]}
+          textAlign={["center", "left"]}
         >
-          LogOut
-        </Button>
+          <Text fontSize={["lg", "xl"]} fontWeight="bold" mb={[2, 0]}>
+            {companyName || "Company Name"}
+          </Text>
+          <Text
+            fontSize={["md", "xl"]}
+            fontWeight="bold"
+            flexGrow={1}
+            textAlign={["center", "center"]}
+            mb={[2, 0]}
+          ></Text>
+          <Button
+            colorScheme="orange"
+            bg="orange"
+            onClick={handleSignOut}
+            mx={[0, 10]}
+            mt={[2, 0]}
+            p={4}
+            fontWeight="bold"
+            borderRadius={5}
+            fontSize={{ base: "14px", md: "16px" }}
+            leftIcon={<GoSignOut />}
+          >
+            LogOut
+          </Button>
+        </Flex> 
+  
+       { /* Main Menu */}
+       <Box
+          borderRadius="md"
+          maxWidth="1000px"
+          background="linear-gradient(145deg, #5e8387, #4f6e71)"
+          width={["100%", "70%", "50%"]}
+          mt="2%"
+          pb={15}
+          boxShadow="6px 6px 8px #6f989c, -6px -6px 8px #6f989c"
+          px={{ base: 4, md: 6 }}
+        >
+          <Heading
+            fontSize={["xl", "2xl"]}
+            mb={6}
+            textAlign="center"
+            color="gray.700"
+            bg="#fdf9bc"
+            py={4}
+            borderTopRadius="md"
+          >
+            Main Menu
+          </Heading>
+          <SimpleGrid columns={[2, 3]} spacing={6}>
+            {functions.length > 0 ? (
+              functions.map((func) => (
+                <VStack key={func.path} spacing={2} align="center">
+                  <Button
+                    onClick={() => handleNavigation(func.path)}
+                    borderRadius="50%"
+                    width={["40px", "70px"]}
+                    height={["40px", "70px"]}
+                    minWidth="60px"
+                    minHeight="60px"
+                    maxWidth="100px"
+                    maxHeight="100px"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    boxShadow="md"
+                    bg="gray.100"
+                    color="gray.600"
+                    _hover={{ bg: "gray.200" }}
+                    p={0}
+                  >
+                    <func.icon size={["24"]} />
+                  </Button>
+                  <Text
+                    fontSize={["sm", "md"]}
+                    textAlign="center"
+                    color="gray.700"
+                  >
+                    {func.name}
+                  </Text>
+                </VStack>
+              ))
+            ) : (
+              <Text>No functions available for your role.</Text>
+            )}
+          </SimpleGrid>
+        </Box>
       </Flex>
-
-      {/* Main Menu */}
-      <Box
-        borderRadius="md"
-        maxWidth="1000px"
-        background="linear-gradient(145deg, #5e8387, #4f6e71)"
-        width={["100%", "70%", "50%"]}
-        mt="2%"
-        pb={15}
-        boxShadow="6px 6px 8px #6f989c, -6px -6px 8px #6f989c"
-        px={{ base: 4, md: 6 }}
-      >
-        <Heading
-          fontSize={["xl", "2xl"]}
-          mb={6}
-          textAlign="center"
-          color="gray.700"
-          bg="#fdf9bc"
-          py={4}
-          borderTopRadius="md"
-        >
-          Main Menu
-        </Heading>
-        <SimpleGrid columns={[2, 3]} spacing={6}>
-          {functions.length > 0 ? (
-            functions.map((func) => (
-              <VStack key={func.path} spacing={2} align="center">
-                <Button
-                  onClick={() => handleNavigation(func.path)}
-                  borderRadius="50%"
-                  width={["40px", "70px"]}
-                  height={["40px", "70px"]}
-                  minWidth="60px"
-                  minHeight="60px"
-                  maxWidth="100px"
-                  maxHeight="100px"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  boxShadow="md"
-                  bg="gray.100"
-                  color="gray.600"
-                  _hover={{ bg: "gray.200" }}
-                  p={0}
-                >
-                  <func.icon size={["24"]} />
-                </Button>
-                <Text
-                  fontSize={["sm", "md"]}
-                  textAlign="center"
-                  color="gray.700"
-                >
-                  {func.name}
-                </Text>
-              </VStack>
-            ))
-          ) : (
-            <Text>No functions available for your role.</Text>
-          )}
-        </SimpleGrid>
-      </Box>
-    </Flex>
+      ):(
+        <SubAdminDashboard />
+      )
   );
 };
 

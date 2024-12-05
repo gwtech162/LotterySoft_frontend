@@ -34,6 +34,7 @@ import MainPanel from "../components/Layout/MainPanel";
 import PanelContainer from "../components/Layout/PanelContainer";
 import PanelContent from "../components/Layout/PanelContent";
 import { AiOutlineConsoleSql } from "react-icons/ai";
+import CustomNavbar from "components/CustomNavbar/CustomNavbar";
 export default function Dashboard(props) {
   const { ...rest } = props;
   // states and functions
@@ -113,33 +114,61 @@ export default function Dashboard(props) {
 
   const matchRoutes = routes.filter((route) => (route.layout == {...rest}.match.path) || route.category == "account");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  let userRole = sessionStorage.getItem("userRole");
+  let isSubAdmin = userRole && userRole.toLowerCase() == "subadmin";
   document.documentElement.dir = "ltr";
   // Chakra Color Mode
   return (
     <ChakraProvider theme={theme} resetCss={false}>
-      <Sidebar
-        routes={matchRoutes}
-        logoText={"LOTTERY"}
-        display='none'
-        sidebarVariant={sidebarVariant}
-        {...rest}
-      />
+      {
+        !isSubAdmin && (
+          <Sidebar
+            routes={matchRoutes}
+            logoText={"LOTTERY"}
+            display='none'
+            sidebarVariant={sidebarVariant}
+            {...rest}
+          />
+        )
+      }
+
+      {
+        isSubAdmin && (
+          <CustomNavbar
+          links={
+            [
+              {
+                text:"Logout",
+                url:"/signout"
+              }
+            ]
+          }
+          />
+        )
+      }
+      
       <MainPanel
         ref={mainPanel}
         w={{
           base: "100%",
-          xl: "calc(100% - 275px)",
+          xl: !isSubAdmin && "calc(100% - 275px)",
         }}>
-        <Portal>
-          <AdminNavbar
-            onOpen={onOpen}
-            logoText={"LOTTERY"}
-            brandText={getActiveRoute(matchRoutes)}
-            secondary={getActiveNavbar(matchRoutes)}
-            fixed={fixed}
-            {...rest}
-          />
-        </Portal>
+
+          {
+            !isSubAdmin && (
+              <Portal>
+                <AdminNavbar
+                  onOpen={onOpen}
+                  logoText={"LOTTERY"}
+                  brandText={getActiveRoute(matchRoutes)}
+                  secondary={getActiveNavbar(matchRoutes)}
+                  fixed={fixed}
+                  {...rest}
+                />
+              </Portal>
+            )
+          }
+        
         {getRoute() ? (
           <PanelContent>
             <PanelContainer>
