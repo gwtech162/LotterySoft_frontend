@@ -7,51 +7,51 @@ const SubAdminDashboard = () => {
     const menuLinks = [
         {
           text:"Sellers",
-          url:"#"
+          url:"/subadmin/SellerManagement"
         },
         {
           text:"Supervisors",
-          url:"#"
+          url:"/subadmin/SupervisorManagement"
         },
         {
           text:"Payment",
-          url:"#"
+          url:"/subadmin/paymentcondition"
         },
         {
           text:"blockNumber",
-          url:"#"
+          url:"/subadmin/blocknumber"
         },
         {
           text:"saleLimit",
-          url:"#"
+          url:"/subadmin/addlimit"
         },
         {
           text:"winNumbers",
-          url:"#"
+          url:"/subadmin/winningnumberviews"
         },
         {
           text:"Tickets",
-          url:"#"
+          url:"/subadmin/soldtickets"
         },
         {
           text:"saleDetails",
-          url:"#"
+          url:"/subadmin/saledetails"
         },
         {
           text:"deleted Tickets",
-          url:"#"
+          url:"/subadmin/deleteticket"
         },
         {
           text:"winning Tickets",
-          url:"#"
+          url:"/subadmin/winningtickets"
         },
         {
           text:"saleReports",
-          url:"#"
+          url:"/subadmin/salereports"
         },
         {
           text:"Percentage",
-          url:"#"
+          url:"/subadmin/PercentageLimit"
         }
       ];
 
