@@ -73,7 +73,7 @@ const PercentageLimit = () => {
   useEffect(() => {
     const fetchConditions = async () => {
       try {
-        const response = await api().get("/subadmin/getpercentagelimit");
+        const response = await api().get("/subadmin/getpercentagelimit?general=true");
         setAllConditions(response.data);
       } catch (error) {
         console.error(
