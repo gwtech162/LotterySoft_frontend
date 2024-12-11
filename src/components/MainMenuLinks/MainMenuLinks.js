@@ -15,7 +15,11 @@ const MainMenuLinks = (props) => {
                     props.links.map((link, index) => {
                         return(
                             <div key={index} className="flex-box">
-                                <div className="icon-box"></div>
+                                <div className="icon-box">
+                                    {
+                                        React.cloneElement(link.icon)
+                                    }
+                                </div>
                                 <p>
                                     <RouterLink to={link.url}>{link.text}</RouterLink>
                                 </p>
@@ -33,6 +37,7 @@ MainMenuLinks.propTypes = {
     links: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
+        icon:PropTypes.element.isRequired
     }))
 };
 
