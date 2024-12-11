@@ -163,4 +163,26 @@ button[type="submit"]{
     button[type="submit"]{
         margin-bottom: 25px;
     }
+    
+    .css-x44vc{
+        padding-top: 0px !important;
+        width: 95% !important;
+        margin:0px auto;
+    }
+    .css-9fovtj{
+        padding-top: 0px !important;
+    }
+    .css-jlr19o {
+        width: 95% !important;
+        flex-wrap: nowrap;
+    }
+    .css-zg2xyz{
+        padding-top: 0px !important;
+    }
+    .css-yc5low{
+        padding-top: 0px !important;
+    }
+    .css-doj67f{
+        width:99% !important;
+    }
 }
