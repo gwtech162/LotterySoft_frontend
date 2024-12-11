@@ -20,62 +20,62 @@ const SubAdminDashboard = () => {
         {
           text:"Sellers",
           url:"/subadmin/SellerManagement",
-          icon:<FaUserTie color='white' size={24}/>,
+          icon:<FaUserTie color='white' size={18}/>,
         },
         {
           text:"Supervisors",
           url:"/subadmin/SupervisorManagement",
-          icon: <FaUserSecret color='white' size={24}/>
+          icon: <FaUserSecret color='white' size={18}/>
         },
         {
           text:"Payment",
           url:"/subadmin/paymentcondition",
-          icon: <MdPayments color='inherit' size={24}/>
+          icon: <MdPayments color='inherit' size={18}/>
         },
         {
           text:"blockNumber",
           url:"/subadmin/blocknumber",
-          icon: <SiAdblock color='inherit' size={24}/>
+          icon: <SiAdblock color='inherit' size={18}/>
         },
         {
           text:"saleLimit",
           url:"/subadmin/addlimit",
-          icon: <MdProductionQuantityLimits color='inherit' size={24}/>
+          icon: <MdProductionQuantityLimits color='inherit' size={18}/>
         },
         {
           text:"winNumbers",
           url:"/subadmin/winningnumberviews",
-          icon: <RiNumbersFill color='inherit' size={24}/>
+          icon: <RiNumbersFill color='inherit' size={18}/>
         },
         {
           text:"Tickets",
           url:"/subadmin/soldtickets",
-          icon: <MdFactCheck color='inherit' size={24}/>
+          icon: <MdFactCheck color='inherit' size={18}/>
         },
         {
           text:"saleDetails",
           url:"/subadmin/saledetails",
-          icon: <MdFactCheck color='inherit' size={24}/>
+          icon: <MdFactCheck color='inherit' size={18}/>
         },
         {
           text:"deleted Tickets",
           url:"/subadmin/deleteticket",
-          icon: <RiDeleteBin5Fill color='inherit' size={24}/>
+          icon: <RiDeleteBin5Fill color='inherit' size={18}/>
         },
         {
           text:"winning Tickets",
           url:"/subadmin/winningtickets",
-          icon: <FaFortAwesome color='inherit' size={24}/>
+          icon: <FaFortAwesome color='inherit' size={18}/>
         },
         {
           text:"saleReports",
           url:"/subadmin/salereports",
-          icon: <FaInfoCircle color='inherit' size={24}/>
+          icon: <FaInfoCircle color='inherit' size={18}/>
         },
         {
           text:"Percentage",
           url:"/subadmin/PercentageLimit",
-          icon: <ImUsers color='inherit' size={24}/>
+          icon: <ImUsers color='inherit' size={18}/>
         }
       ];
 
