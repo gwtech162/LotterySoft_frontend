@@ -47,7 +47,7 @@ h3{
 }
 
 .icon-box{
-    display: block;
+    display: flex;
     /*background-color: #fdf9bc;*/
     background-color: #f29d29;
     width: 40px;
@@ -153,7 +153,7 @@ span {
     }
 
     .flex-box p{
-        font-size: 15px;
+        font-size: 12px;
     }
 
     .icon-box{
