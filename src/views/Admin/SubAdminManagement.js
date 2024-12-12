@@ -127,7 +127,7 @@ function SubAdminManagement() {
     formData.append("phoneNumber",requestBody.phoneNumber);
     formData.append("isActive",isActive);
     api()
-      .patch(`/admin/updatesubadmin/${id}`, requestBody,{
+      .patch(`/admin/updatesubadmin/${id}`, formData,{
         "headers":{
           "Content-Type": "multipart/form-data",
         }
@@ -279,7 +279,7 @@ function SubAdminManagement() {
                 my="5px"
                 style={{ "box-shadow": "0 0 2px 2px white" }}
                 key={item._id}
-                width={"31.5%"}
+                width={"100%"}
                 flexDirection="row"
                 border="none"
                 p="0px"
@@ -288,6 +288,7 @@ function SubAdminManagement() {
                     p="0px"
                     objectFit="cover"
                     width="150px"
+                    height="180px"
                     src={companyLogoSrc}
                     alt={item?.companyName}
                 />
