@@ -267,7 +267,7 @@ function SubAdminManagement() {
             ADD
           </Button>
         </CardHeader>
-        <CardBody p="0px" m="0px">
+        <CardBody p="0px" m="0px" bg="#e3e2e2">
           <Flex flexWrap={"wrap"}>
             {users.map((item) => {
               let hasCompanyLogo = item.companyLogo != "" && item.companyLogo != undefined ? true : false;
@@ -300,7 +300,6 @@ function SubAdminManagement() {
                       justifyContent={"center"}
                       textAlign={"left"}
                       width={"100%"}
-                      bg="none"
                     >
                       <h4>{item?.companyName}</h4>
                       <h6>{item?.address}</h6>
