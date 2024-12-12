@@ -128,6 +128,19 @@ button[type="submit"]{
     padding-top: 1px !important;
     border-radius: 0px !important;
 }
+.css-th48c9{
+    padding:0px !important;
+    padding-top:1px !important;
+}
+.css-xva1d6{
+    padding: 10px !important;
+}
+.css-1a4ls53{
+    border-radius: 0px !important;
+}
+.css-ea5voe{
+    border-radius: 0px !important;
+}
 
 @keyframes rotation {
     0% {
@@ -224,5 +237,11 @@ button[type="submit"]{
         width: 100% !important;
         margin-right: 3%;
         margin-bottom: 2%;
+    }
+    .css-qt6qyu{
+        width:90% !important;
+    }
+    .css-ea5voe {
+        width:90% !important;
     }
 }
