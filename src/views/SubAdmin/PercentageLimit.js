@@ -246,9 +246,9 @@ const PercentageLimit = () => {
               <Stack
                 key={index}
                 spacing={1}
-                width="350px"
+                width="30%"
                 p="5px"
-                m="10px"
+                marginLeft='3%'
                 bg="#4AADC6"
                 // border={"1px solid gray"}
               >
