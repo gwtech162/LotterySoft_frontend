@@ -16,7 +16,7 @@ import {
   Text,
   Box,
 } from "@chakra-ui/react";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaTimes, FaTimesCircle } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 
@@ -213,7 +213,7 @@ const PercentageLimit = () => {
         width="100%"
         border={{ base: "none", md: "1px solid gray" }}
       >
-        <CardHeader display="flex" justifyContent="space-between">
+        <CardHeader bg="#92CCDC" display="flex" justifyContent="space-between">
           <Text fontSize="lg" color="black" font="Weight:bold">
             Percentage Limit
           </Text>
@@ -226,10 +226,12 @@ const PercentageLimit = () => {
               }
             }}
             isDisabled={lotteryCategories.length === 0}
-            bg={colorMode === "light" ? "blue.500" : "blue.300"}
+            bg={colorMode === "light" ? "#31859B" : "#31859B"}
+            color={"white"}
             _hover={{ bg: colorMode === "light" ? "blue.600" : "blue.200" }}
           >
-            <FaPlus size={24} color="white" />
+            {/* <FaPlus size={24} color="white" /> */}
+            ADD
           </Button>
         </CardHeader>
         <CardBody pb="15px">
@@ -246,13 +248,31 @@ const PercentageLimit = () => {
                 width="350px"
                 p="5px"
                 m="10px"
-                border={"1px solid gray"}
+                bg="#4AADC6"
+                // border={"1px solid gray"}
               >
                 <VStack spacing={3} align="stretch" color="black">
-                  <FormControl id="lotteryCategoryName" isRequired>
-                    <HStack justifyContent="space-between">
+                <FormControl id="user" >
+                    <HStack justifyContent="space-between" bg="#92CCDC">
                       <Box>
-                        <FormLabel>Lottery Category Name</FormLabel>
+                        <FormLabel>USER</FormLabel>
+                      </Box>
+                      <Box>
+                        <Button
+                          size="sm"
+                          onClick={() => console.log("this will be done later.")}
+                          bg={
+                            colorMode === "light" ? "red.500" : "red.300"
+                          }
+                        >
+                          <FaTimesCircle size={20} color="white" />
+                        </Button>
+                      </Box>
+                    </HStack>
+                  </FormControl>
+                  <FormControl id="lotteryCategoryName" >
+                    <HStack justifyContent="space-between" bg="#92CCDC">
+                      <Box>
                         <FormLabel>{condition.lotteryCategoryName}</FormLabel>
                       </Box>
                       <Box>
@@ -268,72 +288,84 @@ const PercentageLimit = () => {
                       </Box>
                     </HStack>
                   </FormControl>
-                  <FormControl id="conditions" isRequired>
-                    <FormLabel>Percentage Limit</FormLabel>
-                    <Stack>
-                      <Flex justifyContent="space-between">
-                        <VStack color="black">
-                          <Box>
-                            <FormLabel fontSize={14}>L3C</FormLabel>
-                            <Input
-                              isReadOnly
-                              value={condition.limits[0].limitPercent}
-                            />
-                          </Box>
-                          <Box>
+                  <FormControl id="conditions">
+                    {/* <FormLabel>Percentage Limit</FormLabel> */}
+                    <Flex justifyContent="space-between">
+                          <FormLabel fontSize={14}>L3C</FormLabel>
+                          <Input
+                            isReadOnly
+                            value={condition.limits[0].limitPercent}
+                          />
+                    </Flex>
+                    <Flex justifyContent="space-between">
                             <FormLabel fontSize={14}>MRG</FormLabel>
                             <Input
                               isReadOnly
                               value={condition.limits[7].limitPercent}
                             />
-                          </Box>
-                          <Box>
+                    </Flex>
+                    <Flex justifyContent="space-between">
                             <FormLabel fontSize={14}>L4C1</FormLabel>
                             <Input
                               isReadOnly
                               value={condition.limits[1].limitPercent}
                             />
-                          </Box>
-                          <Box>
+                    </Flex>
+
+                    <Flex justifyContent="space-between">
                             <FormLabel fontSize={14}>L4C2</FormLabel>
                             <Input
                               isReadOnly
                               value={condition.limits[2].limitPercent}
                             />
-                          </Box>
-                        </VStack>
-                        <VStack color="black">
-                          <Box>
+                    </Flex>
+                    <Flex justifyContent="space-between">
                             <FormLabel fontSize={14}>L4C3</FormLabel>
                             <Input
                               isReadOnly
                               value={condition.limits[3].limitPercent}
                             />
-                          </Box>
-                          <Box>
+                    </Flex>
+                    <Flex justifyContent="space-between">
                             <FormLabel fontSize={14}>L5C1</FormLabel>
                             <Input
                               isReadOnly
                               value={condition.limits[4].limitPercent}
                             />
-                          </Box>
-                          <Box>
-                            <FormLabel fontSize={14}>L5C2</FormLabel>
+                    </Flex>
+                    <Flex justifyContent="space-between">
+                           <FormLabel fontSize={14}>L5C2</FormLabel>
                             <Input
                               isReadOnly
                               value={condition.limits[5].limitPercent}
                             />
-                          </Box>
-                          <Box>
-                            <FormLabel fontSize={14}>L5C3</FormLabel>
+                    </Flex>
+                    <Flex justifyContent="space-between">
+                          <FormLabel fontSize={14}>L5C3</FormLabel>
                             <Input
                               isReadOnly
                               value={condition.limits[4].limitPercent}
                             />
+                    </Flex>
+
+                    {/* <Stack>
+                      <Flex justifyContent="space-between">
+                        <VStack color="black">
+                          <Box>
+                            
+                          </Box>
+                          <Box>
+                           
+                          </Box>
+                          <Box>
+                            
+                          </Box>
+                          <Box>
+                            
                           </Box>
                         </VStack>
                       </Flex>
-                    </Stack>
+                    </Stack> */}
                   </FormControl>
                 </VStack>
               </Stack>
