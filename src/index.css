@@ -111,9 +111,16 @@ button[type="submit"]{
     background: #92CCDC !important;
     width: 80% !important;
     margin-bottom: 5px !important;
+    border-radius: none !important;
 }
 .css-1m2xeab{
     padding: 10px !important;
+}
+.css-1kxonj9{
+    margin-top: 1px !important;
+}
+.css-gg4vpm{
+    margin-top: 4px !important;
 }
 
 @keyframes rotation {
