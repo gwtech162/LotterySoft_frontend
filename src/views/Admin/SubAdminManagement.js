@@ -287,8 +287,8 @@ function SubAdminManagement() {
                 <Image
                     p="0px"
                     objectFit="cover"
-                    width="150px"
-                    height="180px"
+                    width="50px"
+                    height="50px"
                     src={companyLogoSrc}
                     alt={item?.companyName}
                 />
