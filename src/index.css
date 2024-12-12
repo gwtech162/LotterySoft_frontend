@@ -105,7 +105,7 @@ button[type="submit"]{
 }
 .css-m9ed3h{
     padding: 10px !important;
-    border-radius: 10px !important;
+    border-radius: 0px !important;
 }
 .css-1c6j008{
     background: #92CCDC !important;
@@ -122,7 +122,12 @@ button[type="submit"]{
 .css-gg4vpm{
     margin-top: 4px !important;
 }
-
+.css-1muz1e1{
+    background-color: rgb(15, 15, 143) !important;
+    padding: 0px !important;
+    padding-top: 1px !important;
+    border-radius: 0px !important;
+}
 @keyframes rotation {
     0% {
         transform: rotate(0deg);

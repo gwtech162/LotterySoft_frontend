@@ -206,12 +206,11 @@ const PercentageLimit = () => {
   };
 
   return (
-    <Flex direction="column" pt={{ base: "120px", md: "75px" }}  mx="auto"
+    <Flex direction="column" pt="1px"  mx="auto"
     justifyContent="center"
     alignItems="center" width="80%">
       <Card
         overflowX={{ md: "scroll", xl: "hidden" }}
-        p={{ base: "5px", md: "20px" }}
         width="100%"
         border={{ base: "none", md: "1px solid gray" }}
       >
@@ -236,7 +235,7 @@ const PercentageLimit = () => {
             ADD
           </Button>
         </CardHeader>
-        <CardBody pb="15px">
+        <CardBody  p={{ base: "5px", md: "20px" }} pb="15px">
           <Flex
             flexWrap="wrap"
             flexDirection={{ base: "column", sm: "row" }}
