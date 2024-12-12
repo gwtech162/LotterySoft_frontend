@@ -206,7 +206,9 @@ const PercentageLimit = () => {
   };
 
   return (
-    <Flex direction="column" pt={{ base: "120px", md: "75px" }}>
+    <Flex direction="column" pt={{ base: "120px", md: "75px" }}  mx="auto"
+    justifyContent="center"
+    alignItems="center" width="80%">
       <Card
         overflowX={{ md: "scroll", xl: "hidden" }}
         p={{ base: "5px", md: "20px" }}
