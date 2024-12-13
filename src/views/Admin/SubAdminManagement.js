@@ -215,6 +215,9 @@ function SubAdminManagement() {
   const handleEdit = (user) => {
     setEditing(true);
     setCurrentUser(user);
+    setCompanyName(user.companyName);
+    setAddress(user.address);
+    setPhoneNumber(user.phoneNumber);
     setUserName(user.userName);
     setPassword("");
     setIsActive(user.isActive);
@@ -226,6 +229,9 @@ function SubAdminManagement() {
     setCurrentUser(null);
     setUserName("");
     setPassword("");
+    setCompanyName("");
+    setAddress("");
+    setPhoneNumber("");
     setIsActive(true);
     onClose();
   };
