@@ -267,39 +267,41 @@ function SubAdminManagement() {
             ADD
           </Button>
         </CardHeader>
-        <CardBody p="0px" m="0px" bg="#e3e2e2">
-          <Flex flexWrap={"wrap"}>
+        <CardBody p="0px" m="0px" bg="#E2E2E2">
+          <Flex flexWrap={"wrap"} width="100%">
             {users.map((item) => {
               let hasCompanyLogo = item.companyLogo != "" && item.companyLogo != undefined ? true : false;
               let companyLogoSrc = hasCompanyLogo ? process.env.REACT_APP_BACKEND_URL + `/${item.companyLogo}` : "/default-company.jpg";
               return (
               <Card
                 size="sm"
-                mx="7px"
+                mx="8px"
                 my="5px"
-                style={{ "box-shadow": "0 0 2px 2px white" }}
+                style={{ "box-shadow": "0 0 2px 2px black" }}
                 key={item._id}
-                width={"100%"}
-                flexDirection="row"
+                width={"18%"}
                 border="none"
-                p="0px"
+                p="5px"
+                pt="20px"
+                bg="#E2E2E2"
               >
                 <Image
                     p="0px"
-                    objectFit="cover"
-                    width="50px"
-                    height="50px"
+                    width="60px"
+                    height="60px"
+                    mx="auto"
+                    borderRadius="50%"
                     src={companyLogoSrc}
                     alt={item?.companyName}
                 />
 
-              <Box ml="10px"> 
-                <CardBody justifyContent={"center"}>
-                  <div>
+              <Box> 
+                <CardBody justifyContent={"center"} p="0px" m="0px">
+                  <div style={{width:"100%"}}>
                     <Flex
                       direction={"column"}
                       justifyContent={"center"}
-                      textAlign={"left"}
+                      textAlign={"center"}
                       width={"100%"}
                     >
                       <h4>{item?.companyName}</h4>
@@ -308,7 +310,7 @@ function SubAdminManagement() {
                       <h6>{item?.phoneNumber}</h6>
                       <h6>{item?.isActive ? "Active" : "Inactive"}</h6>
                     </Flex>
-                    <Flex pt={"20px"} justifyContent={"left"}>
+                    <Flex pt={"5px"} justifyContent={"center"}>
                       <Button
                         size="sm"
                         mr={2}
