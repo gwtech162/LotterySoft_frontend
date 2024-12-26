@@ -141,6 +141,37 @@ button[type="submit"]{
 .css-ea5voe{
     border-radius: 0px !important;
 }
+.css-1j9pqk6{
+    padding: 0px !important;
+}
+.css-51l490{
+    padding: 10px !important;
+}
+.css-1klrkx1{
+    display: inline-flex !important;
+}
+.css-2gx1h6 {
+    margin-top: 6px !important;
+}
+.css-owjkmg{
+    margin-top: -5px !important;
+}
+.css-717286 {
+    width: 100% !important;
+    justify-content: space-between;
+    padding: 10px;
+}
+.limit-number-icon{
+    font-size: 30px;
+}
+.css-lvc8uc{
+    margin: 0px !important;
+    width: 90% !important;
+}
+
+.css-13gwzxu{
+    background:#B8CBE5 !important;
+}
 
 @keyframes rotation {
     0% {
@@ -223,6 +254,8 @@ button[type="submit"]{
     }
     .css-yc5low{
         padding-top: 0px !important;
+        width: 100% !important;
+        display: flex !important;
     }
     .css-doj67f{
         width:99% !important;
@@ -247,5 +280,14 @@ button[type="submit"]{
     .css-1r4ha4q{
         width: 90% !important;
         margin-left: 20px !important;
+    }
+    .css-lvc8uc{
+        width: 100% !important;
+    }
+    .ss-1j9pqk6{
+        width: 100% !important;
+    }
+    .css-1j9pqk6{
+        width: 100% !important;
     }
 }

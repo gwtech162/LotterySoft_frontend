@@ -20,7 +20,7 @@ import {
   ModalHeader,
   Box,
 } from "@chakra-ui/react";
-import { FaPlus, FaEdit } from "react-icons/fa";
+import { FaPlus, FaEdit, FaTimesCircle, FaWatchmanMonitoring, FaNotEqual, FaCircle } from "react-icons/fa";
 import { CgSearch } from "react-icons/cg";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Card from "components/Card/Card.js";
@@ -52,6 +52,7 @@ const LimitNumber = () => {
   const [activeView, setActiveView] = useState("all");
   const [showSearchForm, setShowSearchForm] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [lotteryName, setLotteryName] = useState("");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
@@ -259,46 +260,17 @@ const LimitNumber = () => {
         width="60%"
         border={{ base: "none", md: "1px solid gray" }}
         borderRadius="none"
+        bg="gray"
       >
         <CardHeader
           display="flex"
           justifyContent="space-between"
           alignItems="center"
+          bg="#92CCDC"
         >
           <Text fontSize="lg" fontWeight="bold">
             Limit Numbers
           </Text>
-          <RadioGroup
-            onChange={handleGetLimit}
-            value={activeView}
-            display="flex"
-            gap={4}
-          >
-            <Radio
-              value="all"
-              colorScheme="blue"
-              isDisabled={isLoading}
-              size="lg"
-            >
-              All
-            </Radio>
-            <Radio
-              value="supervisor"
-              colorScheme="blue"
-              isDisabled={isLoading}
-              size="lg"
-            >
-              Supervisor
-            </Radio>
-            <Radio
-              value="seller"
-              colorScheme="blue"
-              isDisabled={isLoading}
-              size="lg"
-            >
-              Seller
-            </Radio>
-          </RadioGroup>
           <Button
             onClick={() => {
               setEditing(false);
@@ -307,8 +279,88 @@ const LimitNumber = () => {
             bg="green.800"
             color="white"
           >
-            <FaPlus />
+            {/* <FaPlus /> */}
+            ADD
           </Button>
+        </CardHeader>
+
+        <CardHeader
+             display="flex"
+             justifyContent="center"
+             alignItems="center"
+             bg="#92CCDC"
+             mt="10px"
+             py="15px"
+          >
+            <RadioGroup
+                onChange={handleGetLimit}
+                value={activeView}
+                display="flex"
+                gap={4}
+            >
+              <Radio
+                value="all"
+                colorScheme="blue"
+                isDisabled={isLoading}
+                size="lg"
+              >
+                All
+              </Radio>
+              <Radio
+                value="supervisor"
+                colorScheme="blue"
+                isDisabled={isLoading}
+                size="lg"
+              >
+                Supervisor
+              </Radio>
+              <Radio
+                value="seller"
+                colorScheme="blue"
+                isDisabled={isLoading}
+                size="lg"
+              >
+                Seller
+              </Radio>
+          </RadioGroup>
+
+        </CardHeader>
+
+        <CardHeader
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          bg="#92CCDC"
+          py="10px"
+        >
+
+          <HStack>
+          <FormControl flex={1} flexDirection="row">
+            <FormLabel>Lottery: </FormLabel>
+
+            <Input
+
+              type="text"
+              placeholder="Lottery Name"
+              value={lotteryName}
+              onChange={(e) => setLotteryName(e.target.value)}
+
+            />
+            
+          </FormControl>
+
+          <VStack>
+                <Button
+                  onClick={handleSearch}
+                  bg="#F3960C"
+                  color="white"
+                  isLoading={isLoading}
+                >
+                  Search
+                </Button>
+              </VStack>
+          </HStack>
+
         </CardHeader>
 
         {showSearchForm && (
@@ -381,7 +433,7 @@ const LimitNumber = () => {
         )}
 
         <CardBody>
-          <Flex wrap="wrap" justify="center" gap={4}>
+          <Flex wrap="wrap" justifyContent="space-between" gap={4}>
             {limitNumbers.map((limit) => (
               <VStack
                 key={limit._id}
@@ -389,7 +441,7 @@ const LimitNumber = () => {
                 p={4}
                 w={{ base: "100%", md: "350px" }}
               >
-                <HStack spacing={20}>
+                <HStack  bg="#92CCDC" spacing={20}>
                   <VStack align="start">
                     <FormLabel>
                       {limit.seller?.userName ||
@@ -398,19 +450,19 @@ const LimitNumber = () => {
                     </FormLabel>
                     <FormLabel>{limit.lotteryCategoryName}</FormLabel>
                   </VStack>
-                  <HStack spacing={2}>
-                    <Button onClick={() => handleEdit(limit)} bg="yellow.800">
-                      <FaEdit color="white" />
-                    </Button>
-                    <Button
-                      onClick={() => handleDelete(limit._id)}
-                      bg="red.800"
-                    >
-                      <RiDeleteBinLine color="white" />
-                    </Button>
-                  </HStack>
+                    <VStack align="end">
+                      {/* <Button onClick={() => handleEdit(limit)}> */}
+                        <FaTimesCircle className="limit-number-icon"  color="red"/>
+                      {/* </Button> */}
+                      {/* <Button
+                        onClick={() => handleDelete(limit._id)}
+                        // bg="red.800"
+                      > */}
+                        <FaCircle className="limit-number-icon" color="yellow"/>
+                      {/* </Button> */}
+                    </VStack>
                 </HStack>
-                <Flex wrap="wrap" gap={2} w="full">
+                <Flex background="#D9E6F1" padding="10px" wrap="wrap" gap={2} w="full" boxShadow="0px 0px 10px black">
                   {limit.limits.map((limitItem) => (
                     <Box key={limitItem.gameCategory} w="45%">
                       <FormLabel fontSize="sm">
