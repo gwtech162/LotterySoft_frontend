@@ -1,4 +1,8 @@
-
+html{
+    /*background-color: rgb(194, 191, 191);*/
+    background: linear-gradient(to right top, #051937, #003455, #00526f, #007086, #239099) !important;
+    min-height: 100vh;
+}
 select,
 input {
     border: 1px solid gray !important;
@@ -289,5 +293,12 @@ button[type="submit"]{
     }
     .css-1j9pqk6{
         width: 100% !important;
+    }
+    .css-5xtnp9{
+        width: 90% !important;
+    }
+    .css-6le2l9{
+        padding-top: 0px !important;
+        width: 90% !important;
     }
 }

@@ -63,13 +63,19 @@ const LimitNumber = () => {
         const [
           lotteryResponse,
           sellersResponse,
-          supervisorsResponse,
+          supervisorsResponse
         ] = await Promise.all([
           api().get("/admin/getlotterycategory"),
           api().get("/subadmin/getseller"),
           // api().get("/subadmin/getsellerWhoNotHaveSupervisor"),
           api().get("/subadmin/getsuperVisor"),
+          api().get("/subadmin/getLimitButAll")
         ]);
+
+        if(activeView == "all"){
+          const allLimitsResponse = await api().get("/subadmin/getLimitButAll");
+          setLimitNumbers(allLimitsResponse?.data);
+        }
 
         setLotteryCategories(lotteryResponse?.data?.data);
         setSupervisors(supervisorsResponse?.data);
@@ -90,7 +96,7 @@ const LimitNumber = () => {
   const handleGetLimit = async (viewType) => {
     setActiveView(viewType);
     if (viewType === "all") {
-      setShowSearchForm(false);
+      // setShowSearchForm(false);
       try {
         const response = await api().get("/subadmin/getLimitButAll");
         setLimitNumbers(response.data);
@@ -103,7 +109,7 @@ const LimitNumber = () => {
         });
       }
     } else {
-      setShowSearchForm(true);
+      // setShowSearchForm(true);
       setLimitNumbers([]);
     }
   };
@@ -458,7 +464,7 @@ const LimitNumber = () => {
                         onClick={() => handleDelete(limit._id)}
                         // bg="red.800"
                       > */}
-                        <FaCircle className="limit-number-icon" color="yellow"/>
+                        <FaEdit className="limit-number-icon" color="yellow"/>
                       {/* </Button> */}
                     </VStack>
                 </HStack>

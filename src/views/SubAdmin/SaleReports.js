@@ -119,39 +119,42 @@ const SaleReports = () => {
   };
 
   return (
-    <Flex direction="column" pt={{ base: "120px", md: "75px" }}>
+    <Flex  justifyContent="center" alignItems="center" width="60%" mx="auto" direction="column" pt={{ base: "120px", md: "75px" }}>
       <Card overflowX={{ sm: "scroll", xl: "hidden" }} p={{ base: "5px", md: "20px"}} width="100%" border={{base: "none", md: "1px solid gray"}}>
         <CardHeader
           p="6px 0px 22px 0px"
-          display="flex"
-          justifyContent="space-between"
+          display="block"
+          width="100%"
         >
           <Flex
             flexWrap="wrap"
             flexDirection={{ base: "column", sm: "row" }}
-            justifyContent="space-between"
-            alignItems={"center"}
+          
             width="100%"
           >
             <Text fontSize="lg" color="black" font="Weight:bold" mb="10px">
               Sale Reports
             </Text>
+
+          </Flex>
             <Flex
               color="black"
               flexWrap="wrap"
               flexDirection={{ base: "column", sm: "row" }}
-              justifyContent="flex-start"
-              width="100%"
+              justifyContent="center"
+              alignContent="center"
+              width="50%"
+              mx="auto"
               alignItems="center"
             >
-              <FormControl id="lotteryCategoryName" width="320px" isRequired py="5px">
-                <HStack justifyContent="space-between">
+              <FormControl id="lotteryCategoryName" isRequired py="2px" mt="0px"> 
+           
                   <FormLabel>Seller</FormLabel>
                   <Select
                     onChange={(event) =>
                       setSelectedSellerId(event.target.value)
                     }
-                    width="200px"
+                    width="100%"
                   >
                     <option value={""} style={{ backgroundColor: "#e3e2e2" }}>
                       All
@@ -166,10 +169,8 @@ const SaleReports = () => {
                       </option>
                     ))}
                   </Select>
-                </HStack>
               </FormControl>
-              <FormControl id="lotteryCategoryName" width="320px" isRequired py="5px">
-                <HStack justifyContent="space-between">
+              <FormControl id="lotteryCategoryName" isRequired py="2px" mt="0px">
                   <FormLabel >
                     Category Name
                   </FormLabel>
@@ -177,7 +178,7 @@ const SaleReports = () => {
                     onChange={(event) =>
                       setLotteryCategoryName(event.target.value)
                     }
-                    width="200px"
+                    width="100%"
                   >
                     <option value={""} style={{ backgroundColor: "#e3e2e2" }}>
                       All Category
@@ -192,10 +193,8 @@ const SaleReports = () => {
                       </option>
                     ))}
                   </Select>
-                </HStack>
               </FormControl>
-              <FormControl id="fromDate" width="320px" isRequired py="5px">
-                <HStack justifyContent="space-between">
+              <FormControl id="fromDate" isRequired py="2px" mt="0px">
                   <FormLabel >
                     From
                   </FormLabel>
@@ -203,12 +202,11 @@ const SaleReports = () => {
                     type="date"
                     value={fromDate}
                     onChange={(event) => setFromDate(event.target.value)}
-                    width="200px"
+                    width="100%"
+                    minWidth="100%"
                   />
-                </HStack>
               </FormControl>
-              <FormControl id="toDate" width="320px" isRequired py="5px">
-                <HStack justifyContent="space-between">
+              <FormControl id="toDate" isRequired py="2px" mt="0px">
                   <FormLabel >
                     To
                   </FormLabel>
@@ -216,24 +214,25 @@ const SaleReports = () => {
                     type="date"
                     value={toDate}
                     onChange={(event) => setToDate(event.target.value)}
-                    width="200px"
+                    width="100%"
+                    minWidth="100%"
                   />
-                </HStack>
               </FormControl>
 
               <Button
                 size="sm"
                 onClick={fetchReports}
-                bg={colorMode === "light" ? "red.600" : "blue.300"}
+                bg={colorMode === "light" ? "#F3960C" : "#F3960C"}
                 _hover={{
-                  bg: colorMode === "light" ? "red.500" : "blue.200",
+                  bg: colorMode === "light" ? "#F3960C" : "#F3960C",
                 }}
-                mx={"10px"}
+                mt="10px"
+                mx={"10px"}                color="white"
               >
-                <CgSearch size={20} color={"white"} />
+                {/* <CgSearch size={20} color={"white"} /> */}
+                Search
               </Button>
             </Flex>
-          </Flex>
         </CardHeader>
         <CardBody pb="15px">
           <Table variant="striped" color="black">

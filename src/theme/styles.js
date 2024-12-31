@@ -1,3 +1,5 @@
+import { background } from "@chakra-ui/system";
+
 export const globalStyles = {
   colors: {
     gray: {
@@ -20,13 +22,16 @@ export const globalStyles = {
     global: (props) => ({
       body: {
         fontFamily: "Plus Jakarta Display",
-        backgroundColor: "#e3e2e2"
+        backgroundColor: 
+          "linear-gradient(159.02deg, #0F123B 14.25%, #090D2E 56.45%, #020515 86.14%)",
       },
       "*::placeholder": {
         color: "gray.400",
       },
       html: {
         fontFamily: "Plus Jakarta Display",
+        background:
+          "linear-gradient(159.02deg, #0F123B 14.25%, #090D2E 56.45%, #020515 86.14%)"
       },
     }),
   },
