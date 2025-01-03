@@ -30,7 +30,7 @@ import { Loading } from "components/Loading/Loading.js";
 
 // Custom components
 import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
+import CustomCardHeader from "components/CustomCardHeader/CustomCardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 
 const WinNumber = () => {
@@ -79,69 +79,22 @@ const WinNumber = () => {
   };
 
   return (
-    <Flex direction="column" pt={{ base: "120px", md: "75px" }}>
+    <Flex direction="column" justifyContent="center" alignItems="center" width="60%" mx="auto" pt={{ base: "120px", md: "75px" }}>
       <Card overflowX={{ sm: "scroll", xl: "hidden" }} p={{ base: "5px", md: "20px"}} width="100%" border={{base: "none", md: "1px solid gray"}}>
-        <CardHeader
-          p="6px 0px 22px 0px"
-          display="flex"
-          justifyContent="space-between"
-        >
-          <Flex
-            flexWrap="wrap"
-            flexDirection={{ base: "column", sm: "row" }}
-            justifyContent="space-between"
-            width="100%"
-          >
-            <Text fontSize="lg" font="Weight:bold">
-              Winning Number
-            </Text>
-            <Flex
-              flexWrap="wrap"
-              flexDirection={{ base: "column", sm: "row" }}
-              justifyContent="space-between"
-              alignItems={"center"}
-            >
-              <FormControl id="fromDate" width="250px" isRequired>
-                <HStack justifyContent="space-between">
-                  <FormLabel p="10px" m="0">
-                    From
-                  </FormLabel>
-                  <Input
-                    type="date"
-                    value={fromDate}
-                    onChange={(event) => setFromDate(event.target.value)}
-                    width="180px"
-                  />
-                </HStack>
-              </FormControl>
-              <FormControl id="toDate" width="250px" isRequired>
-                <HStack justifyContent="space-between">
-                  <FormLabel p="10px" m="0">
-                    To
-                  </FormLabel>
-                  <Input
-                    type="date"
-                    value={toDate}
-                    onChange={(event) => setToDate(event.target.value)}
-                    width="180px"
-                  />
-                </HStack>
-              </FormControl>
-              <Button
-                size="sm"
-                onClick={fetchWinningNumbers}
-                bg={colorMode === "light" ? "red.600" : "blue.300"}
-                _hover={{
-                  bg: colorMode === "light" ? "red.500" : "blue.200",
-                }}
-                mx={"10px"}
-              >
-                <CgSearch size={20} color={"white"} />
-              </Button>
-            </Flex>
-          </Flex>
-        </CardHeader>
-        <CardBody pb="15px">
+        
+        <CustomCardHeader
+          title="Winning Number"
+          showSellerField={false}
+          showLotteryField={false}
+          fromDate={fromDate}
+          setFromDate={setFromDate}
+          toDate={toDate}
+          setToDate={setToDate}
+          handleSearch={fetchWinningNumbers}
+          colorMode={colorMode}
+        />
+
+        <CardBody pb="15px" background="#C7C7F1">
           <Flex
             flexWrap="wrap"
             flexDirection={{ base: "column", sm: "row" }}

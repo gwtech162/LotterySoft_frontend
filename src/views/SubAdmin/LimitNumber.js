@@ -96,7 +96,7 @@ const LimitNumber = () => {
   const handleGetLimit = async (viewType) => {
     setActiveView(viewType);
     if (viewType === "all") {
-      // setShowSearchForm(false);
+      setShowSearchForm(false);
       try {
         const response = await api().get("/subadmin/getLimitButAll");
         setLimitNumbers(response.data);
@@ -109,7 +109,7 @@ const LimitNumber = () => {
         });
       }
     } else {
-      // setShowSearchForm(true);
+      setShowSearchForm(true);
       setLimitNumbers([]);
     }
   };
@@ -331,50 +331,57 @@ const LimitNumber = () => {
           </RadioGroup>
 
         </CardHeader>
-
-        <CardHeader
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          bg="#92CCDC"
-          py="10px"
-        >
-
-          <HStack>
-          <FormControl flex={1} flexDirection="row">
-            <FormLabel>Lottery: </FormLabel>
-
-            <Input
-
-              type="text"
-              placeholder="Lottery Name"
-              value={lotteryName}
-              onChange={(e) => setLotteryName(e.target.value)}
-
-            />
-            
-          </FormControl>
-
-          <VStack>
-                <Button
-                  onClick={handleSearch}
-                  bg="#F3960C"
-                  color="white"
-                  isLoading={isLoading}
-                >
-                  Search
-                </Button>
-              </VStack>
-          </HStack>
-
-        </CardHeader>
+        
+        {
+          activeView.toLowerCase() == "all"  && (
+            <CardHeader
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            bg="#92CCDC"
+            py="10px"
+          >
+  
+            <HStack>
+            <FormControl flex={1} flexDirection="row">
+              <FormLabel>Lottery: </FormLabel>
+  
+              <Input
+  
+                type="text"
+                placeholder="Lottery Name"
+                value={lotteryName}
+                onChange={(e) => setLotteryName(e.target.value)}
+  
+              />
+              
+            </FormControl>
+  
+            <VStack>
+                  <Button
+                    onClick={handleSearch}
+                    bg="#F3960C"
+                    color="white"
+                    isLoading={isLoading}
+                  >
+                    Search
+                  </Button>
+                </VStack>
+            </HStack>
+  
+          </CardHeader>
+          )
+        }
+       
 
         {showSearchForm && (
           <CardHeader
             display="flex"
             flexDirection={{ base: "column", md: "row" }}
             gap={5}
-            marginY="20px"
+            bg="#92CCDC"
+            marginTop="5px"
+            paddingBottom="10px"
             justifyContent="center"
           >
             <HStack>
@@ -447,28 +454,24 @@ const LimitNumber = () => {
                 p={4}
                 w={{ base: "100%", md: "350px" }}
               >
-                <HStack  bg="#92CCDC" spacing={20}>
-                  <VStack align="start">
+
+                  <Flex justifyContent="space-between" width="100%"  bg="#92CCDC" padding="5px">
                     <FormLabel>
                       {limit.seller?.userName ||
                         limit.superVisor?.userName ||
                         "All"}
                     </FormLabel>
-                    <FormLabel>{limit.lotteryCategoryName}</FormLabel>
-                  </VStack>
-                    <VStack align="end">
-                      {/* <Button onClick={() => handleEdit(limit)}> */}
-                        <FaTimesCircle className="limit-number-icon"  color="red"/>
-                      {/* </Button> */}
-                      {/* <Button
-                        onClick={() => handleDelete(limit._id)}
-                        // bg="red.800"
-                      > */}
-                        <FaEdit className="limit-number-icon" color="yellow"/>
-                      {/* </Button> */}
-                    </VStack>
-                </HStack>
-                <Flex background="#D9E6F1" padding="10px" wrap="wrap" gap={2} w="full" boxShadow="0px 0px 10px black">
+                    <FaTimesCircle className="limit-number-icon"  color="red"/>
+                  </Flex>
+
+                  <Flex justifyContent="space-between" width="100%"  bg="#92CCDC" padding="5px">
+
+                    <FormLabel >{limit.lotteryCategoryName}</FormLabel>
+                    <FaEdit className="limit-number-icon" color="yellow"/>
+                  
+                  </Flex>
+                 
+                <Flex background="#D9E6F1" padding="10px" wrap="wrap" gap={2} w="full" marginTop="1px">
                   {limit.limits.map((limitItem) => (
                     <Box key={limitItem.gameCategory} w="45%">
                       <FormLabel fontSize="sm">

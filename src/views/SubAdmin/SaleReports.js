@@ -31,6 +31,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import { Loading } from "components/Loading/Loading.js";
+import CustomCardHeader from "components/CustomCardHeader/CustomCardHeader.js";
 
 const SaleReports = () => {
   const toast = useToast();
@@ -121,120 +122,22 @@ const SaleReports = () => {
   return (
     <Flex  justifyContent="center" alignItems="center" width="60%" mx="auto" direction="column" pt={{ base: "120px", md: "75px" }}>
       <Card overflowX={{ sm: "scroll", xl: "hidden" }} p={{ base: "5px", md: "20px"}} width="100%" border={{base: "none", md: "1px solid gray"}}>
-        <CardHeader
-          p="6px 0px 22px 0px"
-          display="block"
-          width="100%"
-        >
-          <Flex
-            flexWrap="wrap"
-            flexDirection={{ base: "column", sm: "row" }}
-          
-            width="100%"
-          >
-            <Text fontSize="lg" color="black" font="Weight:bold" mb="10px">
-              Sale Reports
-            </Text>
 
-          </Flex>
-            <Flex
-              color="black"
-              flexWrap="wrap"
-              flexDirection={{ base: "column", sm: "row" }}
-              justifyContent="center"
-              alignContent="center"
-              width="50%"
-              mx="auto"
-              alignItems="center"
-            >
-              <FormControl id="lotteryCategoryName" isRequired py="2px" mt="0px"> 
-           
-                  <FormLabel>Seller</FormLabel>
-                  <Select
-                    onChange={(event) =>
-                      setSelectedSellerId(event.target.value)
-                    }
-                    width="100%"
-                  >
-                    <option value={""} style={{ backgroundColor: "#e3e2e2" }}>
-                      All
-                    </option>
-                    {sellerInfo.map((info) => (
-                      <option
-                        key={info._id}
-                        value={info._id}
-                        style={{ backgroundColor: "#e3e2e2" }}
-                      >
-                        {info.userName}
-                      </option>
-                    ))}
-                  </Select>
-              </FormControl>
-              <FormControl id="lotteryCategoryName" isRequired py="2px" mt="0px">
-                  <FormLabel >
-                    Category Name
-                  </FormLabel>
-                  <Select
-                    onChange={(event) =>
-                      setLotteryCategoryName(event.target.value)
-                    }
-                    width="100%"
-                  >
-                    <option value={""} style={{ backgroundColor: "#e3e2e2" }}>
-                      All Category
-                    </option>
-                    {lotteryCategories.map((category) => (
-                      <option
-                        key={category._id}
-                        value={category.lotteryName}
-                        style={{ backgroundColor: "#e3e2e2" }}
-                      >
-                        {category.lotteryName}
-                      </option>
-                    ))}
-                  </Select>
-              </FormControl>
-              <FormControl id="fromDate" isRequired py="2px" mt="0px">
-                  <FormLabel >
-                    From
-                  </FormLabel>
-                  <Input
-                    type="date"
-                    value={fromDate}
-                    onChange={(event) => setFromDate(event.target.value)}
-                    width="100%"
-                    minWidth="100%"
-                  />
-              </FormControl>
-              <FormControl id="toDate" isRequired py="2px" mt="0px">
-                  <FormLabel >
-                    To
-                  </FormLabel>
-                  <Input
-                    type="date"
-                    value={toDate}
-                    onChange={(event) => setToDate(event.target.value)}
-                    width="100%"
-                    minWidth="100%"
-                  />
-              </FormControl>
-
-              <Button
-                size="sm"
-                onClick={fetchReports}
-                bg={colorMode === "light" ? "#F3960C" : "#F3960C"}
-                _hover={{
-                  bg: colorMode === "light" ? "#F3960C" : "#F3960C",
-                }}
-                mt="10px"
-                mx={"10px"}                color="white"
-              >
-                {/* <CgSearch size={20} color={"white"} /> */}
-                Search
-              </Button>
-            </Flex>
-        </CardHeader>
-        <CardBody pb="15px">
+        <CustomCardHeader
+          title="Sales Reports"
+          setSelectedSellerId={setSelectedSellerId}
+          sellerInfo={sellerInfo}
+          setLotteryCategoryName={setLotteryCategoryName}
+          lotteryCategories={lotteryCategories}
+          fromDate={fromDate}
+          setFromDate={setFromDate}
+          toDate={toDate}
+          setToDate={setToDate}
+          handleSearch={fetchReports}
+          colorMode={colorMode}
+        />
+        
+        <CardBody pb="15px" background="#C7C7F1">
           <Table variant="striped" color="black">
             <Thead>
               <Tr>

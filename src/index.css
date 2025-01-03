@@ -176,6 +176,29 @@ button[type="submit"]{
 .css-13gwzxu{
     background:#B8CBE5 !important;
 }
+.css-1x72iw1{
+    padding: 0px !important;
+    margin-top: 1px !important;
+}
+.css-1ttsxzf{
+    margin-top: 0px !important;
+}
+
+.css-1x72iw1>*:not(style)~*:not(style){
+    margin-top: 1px !important;
+}
+
+.css-51l490,.css-v1ao22{
+    margin-top: 5px !important;
+}
+
+.css-shuygk{
+    padding: none !important;
+}
+
+.css-bb8cw7{
+    margin-bottom: 0px !important;
+}
 
 @keyframes rotation {
     0% {
@@ -288,11 +311,8 @@ button[type="submit"]{
     .css-lvc8uc{
         width: 100% !important;
     }
-    .ss-1j9pqk6{
-        width: 100% !important;
-    }
     .css-1j9pqk6{
-        width: 100% !important;
+        width: 90% !important;
     }
     .css-5xtnp9{
         width: 90% !important;
@@ -300,5 +320,41 @@ button[type="submit"]{
     .css-6le2l9{
         padding-top: 0px !important;
         width: 90% !important;
+    }
+    .css-v1ao22{
+        width: 95% !important;
+        margin:0px auto !important;
+        margin-top: 5px !important;
+    }
+    .css-2eutsa,.css-hboir5{
+        width: 95% !important;
+        margin: 0px auto !important;
+        margin-top: 1px !important;
+    }
+    .css-shuygk{
+        padding: 0px !important;
+    }
+    .css-mm5k7b{
+        width: 95% !important;
+    }
+    .css-6le2l9{
+        width:95% !important;
+    }
+    .css-1xy5ifw{
+        width: 95% !important;
+    }
+    .css-rdgbts{
+        width: 95% !important;
+    }
+    .css-snbr68{
+        width: 95% !important;
+        margin: 0px auto !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .css-shuygk {
+        padding: 0px !important;
+        border: none !important;
     }
 }
